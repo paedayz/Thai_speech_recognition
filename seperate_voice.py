@@ -28,6 +28,6 @@ class SplitWavAudioMubin():
                 print('All splited successfully')
 
 folder = 'voice'
-file = 'Khlong Nueng.wav'
+file = 'Recording.wav'
 split_wav = SplitWavAudioMubin(folder, file)
 split_wav.multiple_split(min_per_split=1)
