@@ -1,3 +1,4 @@
+import argparse
 from pydub import AudioSegment
 import math
 
@@ -27,7 +28,20 @@ class SplitWavAudioMubin():
             if i == total_mins - min_per_split:
                 print('All splited successfully')
 
-folder = 'voice'
-file = 'Recording.wav'
-split_wav = SplitWavAudioMubin(folder, file)
-split_wav.multiple_split(min_per_split=1)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--min_per_split",
+        type=str,
+        default="2",
+        required=False
+    )
+
+    args = parser.parse_args()
+
+    folder = 'voice'
+    file = 'Recording.wav'
+    splitWavAudioMubin = SplitWavAudioMubin(folder, file)
+    splitWavAudioMubin.multiple_split(min_per_split=int(args.min_per_split))
+
